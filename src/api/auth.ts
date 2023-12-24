@@ -7,7 +7,7 @@ export const signUp = async ({
   phone,
   firstName,
   lastName,
-}) => {
+}: any) => {
   const user = new Parse.User()
   user.set("username", email)
   user.set("password", password)
@@ -21,12 +21,12 @@ export const signUp = async ({
   return parseResultObject(res)
 }
 
-export const logIn = async ({ username, passowrd }) => {
+export const logIn = async ({ username, passowrd }: any) => {
   const res = await Parse.User.logIn(username, passowrd)
   return parseResultObject(res)
 }
 
-export const resetPassword = async ({ email }) => {
+export const resetPassword = async ({ email }: any) => {
   const res = await Parse.User.requestPasswordReset(email)
   return parseResultObject(res)
 }
